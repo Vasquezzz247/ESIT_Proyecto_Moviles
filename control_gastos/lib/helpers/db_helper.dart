@@ -63,4 +63,37 @@ class DBHelper {
     final db = await database;
     return await db.delete('gastos', where: 'id = ?', whereArgs: [id]);
   }
+
+  Future<double> obtenerTotalGastos() async {
+    final db = await database;
+    final result = await db.rawQuery('SELECT SUM(monto) as total FROM gastos');
+    final total = result.first['total'];
+    return total == null ? 0.0 : (total as double);
+  }
+
+  Future<List<Gasto>> obtenerGastosOrdenados() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      'gastos',
+      orderBy: 'fecha DESC',
+    );
+    return List.generate(maps.length, (i) {
+      return Gasto.fromMap(maps[i]);
+    });
+  }
+
+  Future<Gasto?> obtenerGastoPorId(int id) async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      'gastos',
+      where: 'id = ?',
+      whereArgs: [id],
+      limit: 1,
+    );
+    if (maps.isNotEmpty) {
+      return Gasto.fromMap(maps.first);
+    }
+    return null;
+  }
+
 }
