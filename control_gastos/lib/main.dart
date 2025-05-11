@@ -1,4 +1,7 @@
+import 'package:control_gastos/screens/detalle_gasto.dart';
+import 'package:control_gastos/screens/gastos_screens.dart';
 import 'package:flutter/material.dart';
+import 'screens/home_page.dart';
 
 void main() {
   runApp(const ControlGastosApp());
@@ -16,14 +19,12 @@ class ControlGastosApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Control de Gastos'),
-        ),
-        body: const Center(
-          child: Text('¡Bienvenido! Aquí irá la lista de gastos.'),
-        ),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/gastos': (context) => const gastosPage(),
+        '/detalle': (context) => const DetalleGastoPage()
+      },
     );
   }
 }
