@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/gasto.dart';
+import '../../core/models/gasto.dart';
 
 class GastoCard extends StatelessWidget {
   final Gasto gasto;

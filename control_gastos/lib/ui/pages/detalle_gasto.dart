@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/gasto.dart';
-import '../helpers/db_helper.dart';
+import '../../core/models/gasto.dart';
+import '../../core/db/db_helper.dart';
 import '../widgets/custom_action_button.dart';
 
 class DetalleGastoPage extends StatefulWidget {
