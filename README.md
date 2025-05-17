@@ -23,7 +23,7 @@ Aplicación Flutter **3.29.x** para registrar, consultar y administrar tus gasto
 
 | Paso | Comando |
 |------|---------|
-| Clonar repo | `git clone https://github.com/<TU_USUARIO>/control_gastos.git` |
+| Clonar repo | `git clone https://github.com/<TU_USUARIO>/ESIT_Proyecto_Moviles.git` |
 | Instalar dependencias | `cd control_gastos && flutter pub get` |
 | Ejecutar en dispositivo | `flutter run` |
 | Build APK release | `flutter build apk --release` |
