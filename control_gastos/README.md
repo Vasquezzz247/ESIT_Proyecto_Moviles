@@ -97,7 +97,9 @@ El test **db_helper_test.dart** cubre insertar, leer, actualizar y eliminar regi
 ## Autores
 
 **Julio Quezada** · Desarrollador Full Stack
+
 LinkedIn: [Julio Quezada](https://www.linkedin.com/in/quezadajulio/)
+
 GitHub: [Julio Quezada](https://github.com/Alejandroq12)
 
 ---
