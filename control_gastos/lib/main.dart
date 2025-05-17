@@ -1,10 +1,22 @@
-import 'package:control_gastos/screens/detalle_gasto.dart';
-import 'package:control_gastos/screens/gastos_screens.dart';
+import 'package:control_gastos/ui/pages/detalle_gasto.dart';
+import 'package:control_gastos/ui/pages/gastos_screens.dart';
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+import 'package:provider/provider.dart';            // ← NUEVO
+import 'providers/gastos_provider.dart';            // ← NUEVO
 
-void main() {
-  runApp(const ControlGastosApp());
+
+import 'ui/pages/home_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final provider = GastosProvider();
+  await provider.init();
+  runApp(
+    ChangeNotifierProvider.value(
+      value: provider,
+      child: const ControlGastosApp(),
+    ),
+  );
 }
 
 class ControlGastosApp extends StatelessWidget {
@@ -22,7 +34,7 @@ class ControlGastosApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/gastos': (context) => const gastosPage(),
+        '/gastos': (context) => const GastosPage(),
         '/detalle': (context) => const DetalleGastoPage()
       },
     );

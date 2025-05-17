@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import '../helpers/db_helper.dart';
-import '../models/gasto.dart';
+import '../../core/db/db_helper.dart';
+import '../../core/models/gasto.dart';
 import '../widgets/custom_action_button.dart';
 import '../widgets/custom_bottom_navbar.dart';
 import '../widgets/gasto_card.dart';
 import '../widgets/custom_fab.dart';
 
-class gastosPage extends StatefulWidget {
-  const gastosPage({super.key});
+class GastosPage extends StatefulWidget {
+  const GastosPage({Key? key}) : super(key: key);
 
   @override
-  State<gastosPage> createState() => _gastosPageState();
+  State<GastosPage> createState() => _GastosPageState(); 
 }
 
-class _gastosPageState extends State<gastosPage> {
+class _GastosPageState extends State<GastosPage> { 
   List<Gasto> _gastos = [];
   bool _isLoading = true;
 

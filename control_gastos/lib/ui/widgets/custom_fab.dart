@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../helpers/db_helper.dart';
-import '../models/gasto.dart';
+import '../../core/db/db_helper.dart';
+import '../../core/models/gasto.dart';
 
 class CustomFAB extends StatelessWidget {
   final VoidCallback onSaved;

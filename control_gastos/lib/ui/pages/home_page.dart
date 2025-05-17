@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../helpers/db_helper.dart';
+import '../../core/db/db_helper.dart';
 import '../widgets/custom_bottom_navbar.dart';
 
 class HomePage extends StatefulWidget {
