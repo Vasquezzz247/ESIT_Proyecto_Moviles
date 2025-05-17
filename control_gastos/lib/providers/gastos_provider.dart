@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';               // ChangeNotifier
-import '../core/db/db_helper.dart';                     // DBHelper
+import 'package:flutter/foundation.dart';
+import '../core/db/db_helper.dart';
 import '../core/models/gasto.dart';
 
 class GastosProvider extends ChangeNotifier {
