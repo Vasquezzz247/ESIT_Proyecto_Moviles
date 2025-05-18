@@ -102,6 +102,10 @@ LinkedIn: [Julio Quezada](https://www.linkedin.com/in/quezadajulio/)
 
 GitHub: [Julio Quezada](https://github.com/Alejandroq12)
 
+**Alejandro Vasquez** · Estudiante de Ingeniería Informática
+
+GitHub: [Alejandro Vasquez](https://github.com/Vasquezzz247)
+
 ---
 
 ## Licencia  
