@@ -14,13 +14,13 @@ class GastosPage extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colors.surfaceVariant, // Fondo gris (igual que HomePage)
+      backgroundColor: colors.surfaceVariant,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             pinned: true,
             expandedHeight: 140,
-            backgroundColor: colors.surface, // Usa el mismo color que HomePage
+            backgroundColor: colors.surface,
             flexibleSpace: LayoutBuilder(
               builder: (context, constraints) {
                 return FlexibleSpaceBar(
@@ -32,11 +32,11 @@ class GastosPage extends StatelessWidget {
                       'MOVIMIENTOS',
                       style: TextStyle(
                         fontSize: 20,
-                        color: colors.onSurface, // Color de texto consistente
+                        color: colors.onSurface,
                       ),
                     ),
                   ),
-                  background: Container(color: colors.surface), // Fondo consistente
+                  background: Container(color: colors.surface),
                 );
               },
             ),

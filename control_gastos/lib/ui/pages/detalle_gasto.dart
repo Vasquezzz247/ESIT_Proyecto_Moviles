@@ -37,7 +37,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
           builder: (context, setModalState) {
             return Container(
               decoration: BoxDecoration(
-                color: Colors.white, // Fondo blanco del modal (sin cambios)
+                color: Colors.white,
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
                 boxShadow: [
                   BoxShadow(
@@ -62,7 +62,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.deepPurple[800], // Morado oscuro (sin cambios)
+                        color: Colors.deepPurple[800],
                         letterSpacing: 1.2,
                       ),
                     ),
@@ -140,7 +140,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                           }
                         }
                       },
-                      backgroundColor: Colors.deepPurple[800]!, // Botón morado oscuro (sin cambios)
+                      backgroundColor: Colors.deepPurple[800]!,
                     ),
                   ],
                 ),
@@ -155,11 +155,11 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surfaceVariant, // SOLO CAMBIO: Fondo general
+      backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.deepPurple), // Sin cambios
+          icon: const Icon(Icons.arrow_back, color: Colors.deepPurple),
           onPressed: () => Navigator.pop(context),
         ),
         elevation: 0,
@@ -192,7 +192,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                   child: CustomActionButton(
                     label: 'EDITAR',
                     onPressed: () => _mostrarFormularioEdicion(context),
-                    backgroundColor: Colors.deepPurple[800]!, // SOLO CAMBIO: Botón morado oscuro
+                    backgroundColor: Colors.deepPurple[800]!,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -224,7 +224,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                         }
                       }
                     },
-                    backgroundColor: Colors.red[400]!, // Sin cambios
+                    backgroundColor: Colors.red[400]!,
                   ),
                 ),
               ],
