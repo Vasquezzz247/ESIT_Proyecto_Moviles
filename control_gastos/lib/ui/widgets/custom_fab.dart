@@ -14,30 +14,29 @@ class CustomFAB extends StatelessWidget {
   });
 
   void _mostrarFormularioGasto(BuildContext context) {
-    final formKey            = GlobalKey<FormState>();
-    final descCtrl           = TextEditingController();
-    final categoriaCtrl      = TextEditingController(text: 'Otros');
-    final montoCtrl          = TextEditingController();
-    DateTime fechaSeleccion  = DateTime.now();
+    final formKey = GlobalKey<FormState>();
+    final descCtrl = TextEditingController();
+    final categoriaCtrl = TextEditingController(text: 'Otros');
+    final montoCtrl = TextEditingController();
+    DateTime fechaSeleccion = DateTime.now();
+    final deepPurple = Colors.deepPurple[800]!;
 
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) {
-        final colors = Theme.of(context).colorScheme;
-
         return Padding(
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
           child: Container(
             decoration: BoxDecoration(
-              color: colors.surface,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
               boxShadow: [
                 BoxShadow(
-                  color: colors.primary.withOpacity(0.15),
+                  color: deepPurple.withOpacity(0.15),
                   blurRadius: 12,
                   spreadRadius: 4,
                 ),
@@ -52,20 +51,21 @@ class CustomFAB extends StatelessWidget {
                   Text(
                     'AGREGAR GASTO',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: colors.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      color: deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 16),
-                  Divider(color: colors.primaryContainer, thickness: 2, indent: 40, endIndent: 40),
+                  Divider(color: deepPurple.withOpacity(0.5), thickness: 2, indent: 40, endIndent: 40),
                   const SizedBox(height: 24),
 
                   // Descripción
                   TextFormField(
                     controller: descCtrl,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Descripción',
                       filled: true,
+                      focusColor: deepPurple,
                     ),
                     validator: (v) => v!.isEmpty ? 'Campo requerido' : null,
                   ),
@@ -80,10 +80,13 @@ class CustomFAB extends StatelessWidget {
                       'Ocio',
                       'Otros',
                     ].map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Categoría',
                       filled: true,
+                      focusColor: deepPurple,
                     ),
+                    dropdownColor: Theme.of(context).colorScheme.surface,
+                    style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
                     onChanged: (v) => categoriaCtrl.text = v!,
                   ),
                   const SizedBox(height: 12),
@@ -92,10 +95,11 @@ class CustomFAB extends StatelessWidget {
                   TextFormField(
                     controller: montoCtrl,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Monto',
                       prefixText: '\$ ',
                       filled: true,
+                      focusColor: deepPurple,
                     ),
                     validator: (v) => v!.isEmpty ? 'Campo requerido' : null,
                   ),
@@ -104,8 +108,8 @@ class CustomFAB extends StatelessWidget {
                   // Fecha
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: colors.onPrimary,
-                      backgroundColor: colors.primary,
+                      foregroundColor: Colors.white,
+                      backgroundColor: deepPurple,
                       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     ),
                     icon: const Icon(Icons.date_range),
@@ -119,7 +123,6 @@ class CustomFAB extends StatelessWidget {
                       );
                       if (picked != null) {
                         fechaSeleccion = picked;
-                        // refrescar la etiqueta del botón
                         (context as Element).markNeedsBuild();
                       }
                     },
@@ -129,8 +132,8 @@ class CustomFAB extends StatelessWidget {
                   // Botón guardar
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: colors.onPrimary,
-                      backgroundColor: colors.primary,
+                      foregroundColor: Colors.white,
+                      backgroundColor: deepPurple,
                       padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
@@ -165,10 +168,14 @@ class CustomFAB extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       heroTag: 'fab',
-      backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.primary,
+      backgroundColor: Colors.deepPurple[800],
       onPressed: () => _mostrarFormularioGasto(context),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: const Icon(Icons.add, size: 28),
+      child: const Icon(
+        Icons.add,
+        size: 28,
+        color: Colors.white,
+      ),
     );
   }
 }

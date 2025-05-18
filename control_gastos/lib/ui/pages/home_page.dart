@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final total = context.watch<GastosProvider>().total;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
@@ -25,20 +26,35 @@ class HomePage extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             child: Center(
-              child: Card(
-                elevation: 8,
-                margin: const EdgeInsets.all(24),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('TOTAL GASTADO', style: Theme.of(context).textTheme.titleMedium),
-                      const SizedBox(height: 16),
-                      Text('\$${total.toStringAsFixed(2)}',
-                          style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold)),
-                    ],
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: screenWidth * 0.9,
+                  minWidth: 300,
+                ),
+                child: Card(
+                  elevation: 8,
+                  margin: const EdgeInsets.all(24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'TOTAL GASTADO',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          '\$${total.toStringAsFixed(2)}',
+                          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -51,11 +67,6 @@ class HomePage extends StatelessWidget {
         onTap: (i) {
           if (i == 1) Navigator.pushReplacementNamed(context, '/gastos');
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        heroTag: 'fab',
-        onPressed: () => Navigator.pushNamed(context, '/gastos'),
-        child: const Icon(Icons.list),
       ),
     );
   }

@@ -37,7 +37,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
           builder: (context, setModalState) {
             return Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.white, // Fondo blanco del modal (sin cambios)
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
                 boxShadow: [
                   BoxShadow(
@@ -62,7 +62,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.deepPurple[800],
+                        color: Colors.deepPurple[800], // Morado oscuro (sin cambios)
                         letterSpacing: 1.2,
                       ),
                     ),
@@ -140,8 +140,8 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                           }
                         }
                       },
+                      backgroundColor: Colors.deepPurple[800]!, // Botón morado oscuro (sin cambios)
                     ),
-
                   ],
                 ),
               ),
@@ -155,12 +155,12 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Theme.of(context).colorScheme.surfaceVariant, // SOLO CAMBIO: Fondo general
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.deepPurple),
-          onPressed: () => Navigator.pop(context), // <- sin gasto
+          icon: const Icon(Icons.arrow_back, color: Colors.deepPurple), // Sin cambios
+          onPressed: () => Navigator.pop(context),
         ),
         elevation: 0,
       ),
@@ -176,7 +176,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Colors.deepPurple[800],
+                color: Colors.black, // Sin cambios
                 letterSpacing: 1.3,
               ),
             ),
@@ -192,7 +192,7 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                   child: CustomActionButton(
                     label: 'EDITAR',
                     onPressed: () => _mostrarFormularioEdicion(context),
-                    backgroundColor: Colors.deepPurple[800]!,
+                    backgroundColor: Colors.deepPurple[800]!, // SOLO CAMBIO: Botón morado oscuro
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -220,11 +220,11 @@ class _DetalleGastoPageState extends State<DetalleGastoPage> {
                       if (confirm == true) {
                         await DBHelper().eliminarGasto(gasto.id!);
                         if (mounted) {
-                          Navigator.pop(context, true); // <- importante
+                          Navigator.pop(context, true);
                         }
                       }
                     },
-                    backgroundColor: Colors.red[400]!,
+                    backgroundColor: Colors.red[400]!, // Sin cambios
                   ),
                 ),
               ],

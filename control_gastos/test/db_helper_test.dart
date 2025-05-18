@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:control_gastos/helpers/db_helper.dart';
-import 'package:control_gastos/models/gasto.dart';
+import 'package:control_gastos/core/db/db_helper.dart';
+import 'package:control_gastos/core/models/gasto.dart';
 
 void main() {
   sqfliteFfiInit();

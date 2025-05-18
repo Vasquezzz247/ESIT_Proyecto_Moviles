@@ -17,7 +17,7 @@ class GastoCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Card(
-        color: Colors.white,
+        color: Theme.of(context).cardTheme.color,
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
